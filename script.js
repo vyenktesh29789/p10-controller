@@ -125,6 +125,8 @@ async function sendData(){
 
           "Content-Type":"application/json",
 
+          "Accept":"application/json",
+
           "X-AIO-Key":AIO_KEY
         },
 
@@ -141,6 +143,10 @@ async function sendData(){
         "Message Sent Successfully";
 
     }else{
+
+      const err = await response.text();
+
+      console.log(err);
 
       document.getElementById("status").innerHTML =
         "Failed To Send";
