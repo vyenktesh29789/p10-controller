@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>P10 Cloud Display</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>ESP32 P10 Cloud Display</h1>
+
+    <!-- PASSWORD -->
+
+    <div class="card">
+
+      <label>Security Key</label>
+
+      <input type="password" id="key" placeholder="Enter Security Key">
+
+    </div>
+
+    <!-- DISPLAY MODE -->
+
+    <div class="card">
+
+      <label>Display Mode</label>
+
+      <select id="mode">
+
+        <option value="SR">Single Row</option>
+
+        <option value="DR">Double Row</option>
+
+      </select>
+
+    </div>
+
+    <!-- SINGLE ROW -->
+
+    <div class="card" id="singleRowCard">
+
+      <label>Scrolling Text</label>
+
+      <input type="text" id="singleText" placeholder="Enter Text">
+
+    </div>
+
+    <!-- DOUBLE ROW -->
+
+    <div class="card hidden" id="doubleRowCard">
+
+      <label>First Row</label>
+
+      <input type="text" id="firstRow" placeholder="First Row Text">
+
+      <label>Second Row</label>
+
+      <input type="text" id="secondRow" placeholder="Second Row Text">
+
+    </div>
+
+    <!-- SPEED -->
+
+    <div class="card">
+
+      <label>Scroll Speed</label>
+
+      <input type="range" min="1" max="20" value="5" id="speed">
+
+      <span id="speedValue">5</span>
+
+    </div>
+
+    <!-- BRIGHTNESS -->
+
+    <div class="card">
+
+      <label>Brightness</label>
+
+      <input type="range" min="1" max="15" value="10" id="brightness">
+
+      <span id="brightnessValue">10</span>
+
+    </div>
+
+    <!-- BUTTON -->
+
+    <button onclick="sendData()">SEND TO DISPLAY</button>
+
+    <!-- STATUS -->
+
+    <p id="status"></p>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
