@@ -4,7 +4,7 @@
 
 const AIO_USERNAME = "myflawsome";
 
-const AIO_KEY = "aio_Jjkw63zzRciMQTNrEVuWACSBeXzT";
+const AIO_KEY = "aio_MjrE74dWtv8UJkXLSZnqUkrssFQZ";
 
 const FEED = "p10text";
 
