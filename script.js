@@ -14,17 +14,23 @@ const FEED = "p10text";
 
 const mode = document.getElementById("mode");
 
-const singleRowCard = document.getElementById("singleRowCard");
+const singleRowCard =
+  document.getElementById("singleRowCard");
 
-const doubleRowCard = document.getElementById("doubleRowCard");
+const doubleRowCard =
+  document.getElementById("doubleRowCard");
 
-const speedSlider = document.getElementById("speed");
+const speedSlider =
+  document.getElementById("speed");
 
-const brightnessSlider = document.getElementById("brightness");
+const brightnessSlider =
+  document.getElementById("brightness");
 
-const speedValue = document.getElementById("speedValue");
+const speedValue =
+  document.getElementById("speedValue");
 
-const brightnessValue = document.getElementById("brightnessValue");
+const brightnessValue =
+  document.getElementById("brightnessValue");
 
 /*--------------------------------------------------
   MODE CHANGE
@@ -57,7 +63,8 @@ speedSlider.addEventListener("input", () => {
 
 brightnessSlider.addEventListener("input", () => {
 
-  brightnessValue.innerHTML = brightnessSlider.value;
+  brightnessValue.innerHTML =
+    brightnessSlider.value;
 });
 
 /*--------------------------------------------------
@@ -66,7 +73,8 @@ brightnessSlider.addEventListener("input", () => {
 
 async function sendData(){
 
-  const key = document.getElementById("key").value;
+  const key =
+    document.getElementById("key").value;
 
   if(key !== "1234"){
 
@@ -79,7 +87,8 @@ async function sendData(){
 
   if(mode.value === "SR"){
 
-    const text = document.getElementById("singleText").value;
+    const text =
+      document.getElementById("singleText").value;
 
     payload =
       "SR|" +
@@ -137,24 +146,35 @@ async function sendData(){
       }
     );
 
+    const result = await response.text();
+
+    console.log(result);
+
     if(response.ok){
 
       document.getElementById("status").innerHTML =
         "Message Sent Successfully";
 
+      document.getElementById("status").style.color =
+        "#00ff99";
+
     }else{
-
-      const err = await response.text();
-
-      console.log(err);
 
       document.getElementById("status").innerHTML =
         "Failed To Send";
+
+      document.getElementById("status").style.color =
+        "red";
     }
 
   }catch(error){
 
+    console.log(error);
+
     document.getElementById("status").innerHTML =
       "Network Error";
+
+    document.getElementById("status").style.color =
+      "red";
   }
 }
