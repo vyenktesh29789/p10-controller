@@ -1,76 +1,33 @@
-const WEBHOOK_URL =
-"https://io.adafruit.com/api/v2/webhooks/feed/hQtKMSpNhU3dT5skYwWsZKfjokcQ";
+```html
+<!DOCTYPE html>
 
-async function sendMessage(){
+<html>
 
-  const key =
-    document.getElementById("key").value;
+<head>
 
-  const message =
-    document.getElementById("message").value;
+<title>P10 Cloud Display</title>
 
-  if(key !== "1234"){
+</head>
 
-    alert("Wrong Security Key");
+<body>
 
-    return;
-  }
+<h1>P10 Cloud Display</h1>
 
-  if(message.trim() === ""){
+<input type="password" id="key">
 
-    alert("Enter Message");
+<input type="text" id="message">
 
-    return;
-  }
+<button onclick="sendMessage()">
 
-  document.getElementById("status").innerHTML =
-    "Sending...";
+SEND
 
-  try{
+</button>
 
-    const response = await fetch(
+<div id="status"></div>
 
-      WEBHOOK_URL,
+<script src="script.js"></script>
 
-      {
+</body>
 
-        method:"POST",
-
-        headers:{
-          "Content-Type":"application/json"
-        },
-
-        body:JSON.stringify({
-          value:message
-        })
-      }
-    );
-
-    if(response.ok){
-
-      document.getElementById("status").innerHTML =
-        "Message Sent Successfully";
-
-      document.getElementById("status").style.color =
-        "#00ff99";
-
-    }else{
-
-      document.getElementById("status").innerHTML =
-        "Failed To Send";
-
-      document.getElementById("status").style.color =
-        "red";
-    }
-
-  }catch(error){
-
-    console.log(error);
-
-    document.getElementById("status").innerHTML =
-      "Network Error";
-
-    document.getElementById("status").style.color =
-      "red";
-  }
-}
+</html>
+```
